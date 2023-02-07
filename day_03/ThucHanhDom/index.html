@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Thuc hanh DOM </h1>
+    <p>Der Paragraf oder Paragraph (über ???spätlateinisch paragraphus von altgriechisch παράγραφος [γραμμή] parágraphos [grammé] „das Danebengeschriebene“) dient zur Einteilung in aufzählendem Schrifttum, wie bei Gesetzen, Verträgen oder Lehrbüchern. Er wird in der Regel zur besseren Bezugnahme (insbesondere bei Gesetzestexten) in Absätze, Sätze, Nummern und Buchstaben (literae) unterteilt – in Österreich sind Ziffern (Z) für Nummern gebräuchlich –; in Gesetzeskommentaren wird die Kommentierung zu einem Paragraphen häufig zusätzlich in Randnummern (Rn) unterteilt.
+        Völkerrechtliche Verträge, Gesetze !!des öffentlichen Rechts sowie europäische Rechtsakte, Verordnungen und Richtlinien sind meist anstelle von Paragraphen durch Artikel gegliedert. In der Schweiz ist dies bei sämtlichen Bundesgesetzen der Fall, in Deutschland beim Grundgesetz und bei den so genannten Artikelgesetzen sowie bei bayerischen Gesetzen.
+    </p>   
+    
+    <script>
+       //B1: Highlight all the words that have length greater than 8, (background color = yellow)
+        const para = document.querySelector("p");
+        let content = para.innerText.split(" ")
+                                    .map(ele => ele.length >= 8 ? 
+                                    `<span style="background-color : yellow">${ele}</span>`: ele)
+                                    .join (" ")
+        // console.log(content);
+        para.innerHTML = content;
+        
+        //B2: Add link display text "facebook" link to facebook.com sau tag p
+        let link = document.createElement('a');
+        link.innerText = 'facebook';
+        link.href = 'https://facebook.com';
+        link.target = '_blank';
+        document.body.appendChild(link);
+
+        //B3: Dem so tu co trong doan van. Tao 1 the div to display so tu
+        const wordCount = para.innerText.split(' ').length;
+        console.log(wordCount);
+
+        const wordCountEle = document.createElement('div');
+        wordCountEle.innerText = `${wordCount} word`;
+        document.body.insertBefore(wordCountEle,para);
+
+        //B4: Thaythe ? => /
+        para.innerHTML = para.innerHTML.replace(/\?/g, ':)');
+        para.innerHTML = para.innerHTML.replace(/\!/g, ':)');
+
+
+
+    
+    </script>
+</body>
+</html>

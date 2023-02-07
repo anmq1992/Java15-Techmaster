@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Element DOM<</title>
+</head>
+<body>
+    <h1 id="text">Hello</h1>
+    <div class="box">
+        <p>Box item</p>
+    </div>
+
+    
+    <!-- Link sang 1 file javascript -->
+    <script>
+        const para = document.createElement('p');
+        para.innerText = "New para 1";
+
+        //document.body.prepend(para);
+
+        // const para2 = document.createElement('p');
+        // para2.innerText = "New para 2";
+
+        // document.body.appendChild(para2);
+
+        // const heading = document.createElement('h2');
+        // heading.innerText = "Cac ban co khoe khong";
+
+        // //insertBefore()
+        // const box = document.querySelector('.box');
+        // document.body.insertBefore(heading, box);
+        //document.body.insertAdjacentElement('beforeEnd', para);
+
+        // const h1 = document.getElementById('text');
+        // h1.insertAdjacentElement('beforeBegin', para);
+        // h1.insertAdjacentHTML('beforebegin', '<p>New para 1</p>');
+
+        const para1 = document.getElementById('para1');
+        const parent = document.getElementById('parent');
+
+
+
+
+
+    </script>
+</body>
+</html>

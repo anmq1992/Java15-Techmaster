@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Element DOM<</title>
+</head>
+<body>
+    <h1 id="text">Hello</h1>
+    <div id="parent">
+        <p id="child">Para 1</p>
+        <p class="para2">Para 2</p>
+        <p>Para 3</p>
+        <p>Para 4</p>
+        <p>Para 5</p>
+    </div>
+
+    
+    <!-- Link sang 1 file javascript -->
+    <script>
+        const child = document.getElementById('child');
+        const parent = document.getElementById('parent');
+
+        let newElement = document.createElement('h1');
+        newElement.innerText = "Xin Chao Cac Ban";
+
+        parent.replaceChild(newElement, child);
+        //parent.replaceChild(newElement, child);
+        child.parentNode.replaceChild(newElement, child);
+    </script>
+</body>
+</html>
