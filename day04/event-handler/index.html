@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handler 1</title>
+    <style>
+        .red{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <p id="text">Hello world</p>
+    <button>Click me</button>
+    <!-- Link sang 1 file javascript -->
+    <script>
+        function sayHello(){
+            console.log('Hello Everyone')
+        }
+
+        let btn = document.querySelector('button');
+        let para = document.querySelector('p');
+        // btn.onclick = function(){
+        //     console.log('Hello Everyone 1');
+        // }
+
+        btn.addEventListener('click', function(){
+            //console.log('Hello Everyone 2');
+            para.classList.toggle('red');
+        })
+    </script>
+</body>
+</html>

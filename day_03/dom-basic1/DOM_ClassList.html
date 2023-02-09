@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class List</title>
+    <style>
+        .text-red {
+            color: red;
+        }
+        .text-bold {
+            font-weight: bold;;
+        }
+        .text-big {
+            font-size: 40px;
+        }
+        .text-center {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <p id="para" class="text-red">ClassList in JS DOM</p>
+
+    <!-- Link sang 1 file javascript -->
+    <script>
+        const para = document.getElementById('para');
+        console.log(para.classList);
+
+        //Add class
+        para.classList.add("text-big", "text-bold");
+
+        //remove class
+        para.classList.remove("text-big", "text-bold");
+
+        //contains
+        console.log(para.classList.contains('text-red'));
+        console.log(para.classList.contains('text-big'));
+
+        //toggle
+        setInterval(function() {
+            para.classList.toggle("text-big");
+        },2000)
+
+
+    </script>
+</body>
+</html>
