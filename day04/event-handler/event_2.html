@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <p id="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic nisi debitis enim tempora rerum provident magnam velit corporis! Ipsam voluptatum commodi consectetur molestias sit quod alias ex eius veritatis. Dicta.</p>
+  </head>
+  <body>
+    <p id="text">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic nisi debitis
+      enim tempora rerum provident magnam velit corporis! Ipsam voluptatum
+      commodi consectetur molestias sit quod alias ex eius veritatis. Dicta.
+    </p>
 
     <button id="btn-1" onclick="saySomething()">Change content</button>
     <button id="btn-2">Change color</button>
     <button id="btn-3">Change background</button>
     <script>
-        function saySomething(){
-            console.log("Say Something I am giving up on you");
-        }
+      function saySomething() {
+        console.log("Say Something I am giving up on you");
+      }
 
-        function randomHex(){
-            let randomColor = Math.floor(Math.random()*16777215).toString(16);
-        }
+      function randomHex() {
+        let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+      }
 
-        let para = document.getElementById('text');
-        let btn2 = document.getElementById('btn-2');
-        btn2.onclick = function (){
-            let randomColor = Math.floor(Math.random()*16777215).toString(16);
-            para.style.color = randomColor;
-        }
-
-
-        
+      let para = document.getElementById("text");
+      let btn2 = document.getElementById("btn-2");
+      btn2.onclick = function () {
+        let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+        para.style.color = randomColor;
+      };
     </script>
-</body>
+  </body>
 </html>
 
 <!-- Yêu cầu:
