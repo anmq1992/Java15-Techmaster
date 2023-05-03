@@ -5,6 +5,7 @@ import com.example.coursemgmt_backend.model.Course;
 import com.example.coursemgmt_backend.request.CreateCourseReq;
 import com.example.coursemgmt_backend.request.UpdateCourseReq;
 import com.example.coursemgmt_backend.service.CourseService;
+import com.example.coursemgmt_backend.util.CustomPage;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -37,6 +38,18 @@ public class CourseController {
     }
 
     // Admin API
+
+    @GetMapping("admin/courses")
+    public ResponseEntity<?> getAllCourseAdmin(@RequestParam(required = false, defaultValue = "1") Integer page,
+                                     @RequestParam(required = false, defaultValue = "10") Integer pageSize)
+    {
+//        log.info("name : {}, category : {}, type : {}", name, topic, type);
+        CustomPage<Course> customPage = courseService.getAllCoursePaging(page, pageSize);
+
+
+        return ResponseEntity.ok(customPage);
+    }
+
     @PostMapping("admin/courses")
     public ResponseEntity<?> createCourse(@Valid @RequestBody CreateCourseReq req) {
         CourseDto result = courseService.createCourse(req);

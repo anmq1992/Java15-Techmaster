@@ -9,6 +9,7 @@ import com.example.coursemgmt_backend.model.Course;
 import com.example.coursemgmt_backend.repository.CourseRepository;
 import com.example.coursemgmt_backend.request.CreateCourseReq;
 import com.example.coursemgmt_backend.request.UpdateCourseReq;
+import com.example.coursemgmt_backend.util.CustomPage;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +31,19 @@ public class CourseService {
                         && (name == null || course.getName().toLowerCase().contains(name.toLowerCase()))
                         && (topic == null || course.getTopics().stream().anyMatch(c -> c.equals(topic))))
                 .toList();
+    }
+
+    public CustomPage<Course> getAllCoursePaging(Integer page, Integer pageSize) {
+        List<Course> courses = courseRepository.findAll();
+        int startIndex = (page - 1) * pageSize;
+        int totalPage = (int) Math.floor(courses.size() *1.0 / pageSize);
+        int endIndex = Math.min(startIndex + pageSize, courses.size());
+        List<Course> pageData = courses.subList(startIndex, endIndex);
+
+        return new CustomPage<>(page, pageSize,totalPage,  courses.size(), pageData);
+
+//        CustomPage<Course> pageResult = new CustomPage(page, pageSize,totalPage,  courses.size(), pageData);
+//        return pageResult;
     }
 
     // 2. Lấy chi tiết course
@@ -55,7 +69,7 @@ public class CourseService {
 
     public CourseDto updateCourse(UpdateCourseReq req, int id){
         Optional<Course> course = courseRepository.findById(id);
-        if (!course.isPresent()){
+        if (course.isEmpty()){
             throw new NotFoundException("Course not exist");
         }
         Course updateCourse = courseMapper.toCourse(req,id);
